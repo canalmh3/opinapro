@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
+  <title>Explicativa Usuário do Opina Pro</title>
+  <link href="../../css2-3?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="js/jquery-3.6.4.min.js" defer></script>
+  <script src="js/js.cookie.min.js" defer></script>
+  <style>
+    .desbloquear-button {
+      font-weight: bold;
+      display: none; /* Esconde o botão inicialmente */
+      margin: 0 auto; /* Centraliza horizontalmente */
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      text-align: center;
+    }
+    .desbloquear-button:hover {
+      background-color: #0056b3;
+    }
+    .video-container {
+      position: relative;
+      width: 100%;
+      margin-bottom: 20px;
+    }
+    .video-container video {
+      width: 100%;
+      height: auto;
+      outline: none;
+    }
+    .button-container {
+      display: flex;
+      justify-content: center; /* Centraliza o botão */
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <audio id="meuAudio">
+    <source src="media/dinheiro.mp3" type="audio/mp3">
+  </audio>
+
+  <div id="login" style="display: block; padding-top: 5%;">
+    <div class="outer-box-login">
+      <div class="white-box-login">
+        <img src="images/opinilogo.png" alt="Opina Pro Logo" style="width: 30%; margin: 0 auto; display: flex;">
+        <p class="popup-textL" style="text-align: center; color: rgb(101, 101, 101); font-weight: bold; font-size: 18px;">
+          Passo a passo para novos usuários do Opina Pro!
+        </p>
+
+        <!-- Vídeo sem thumbnail e com controles -->
+        <div class="video-container">
+          <video controls>
+            <source src="https://kxchdsmykigwfbpoznsy.supabase.co/storage/v1/object/public/opinapro/vsl.mp4?t=2024-09-05T00%3A22%3A42.276Z" type="video/mp4">
+            Seu navegador não suporta a tag de vídeo.
+          </video>
+        </div>
+
+        <p class="popup-textL" style="text-align: center; color: rgb(101, 101, 101); font-size: 15px;">
+          Antes de prosseguir, assista ao vídeo acima!
+        </p>
+
+        <!-- Contêiner que centraliza o botão -->
+        <div class="button-container">
+          <button id="desbloquearButton" class="desbloquear-button" onclick="window.open('https://pay.risepay.com.br/Pay/65893a705d4841f59363ed3106504f1e', '_blank')">
+            DESBLOQUEAR AGORA
+          </button>
+        </div>
+
+        <script>
+          // Exibe o botão após 26 segundos (26000 ms)
+          setTimeout(function() {
+            document.getElementById('desbloquearButton').style.display = 'inline-block';
+          }, 26000);
+        </script>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
