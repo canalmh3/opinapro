@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liberação de Acesso</title>
+    <link rel="icon" href="https://i.postimg.cc/4Zd6cBGD/logo.jpg" type="image/x-icon">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: black;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 800px; /* Limita a largura máxima */
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            padding: 20px;
+        }
+
+        .banner img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .progress-bar {
+            width: 100%;
+            background-color: #f3f3f3;
+            border-radius: 25px;
+            height: 25px;
+            margin: 20px 0;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 10px;
+            box-sizing: border-box;
+            color: #333;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .progress {
+            width: 91.17%;
+            background-color: red;
+            height: 100%;
+            border-radius: 25px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: 1;
+        }
+
+        .progress-bar span {
+            position: relative;
+            z-index: 2;
+        }
+
+        .btn-pulse {
+            animation: pulse 1.5s infinite;
+            box-shadow: 0 0 10px #00c95d;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 0 10px #00c95d;
+            }
+            50% {
+                transform: scale(1.05);
+                box-shadow: 0 0 20px #00c95d;
+            }
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 10px #00c95d;
+            }
+        }
+
+        .btn-green {
+            background-color: #00c95d;
+            color: white;
+            padding: 15px 32px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            width: 80%;
+            max-width: 250px; /* Ajusta a largura máxima do botão */
+            text-decoration: none;
+            display: inline-block;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn-green:hover {
+            background-color: #009a47;
+        }
+
+        .section {
+            background-color: #f1f1f1;
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .section img {
+            max-width: 100%; /* Ajusta a largura máxima da imagem */
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .section .details {
+            margin-top: 20px;
+        }
+
+        .section h3 {
+            color: #333;
+            font-size: 20px;
+            margin: 10px 0;
+        }
+
+        .section p {
+            color: #666;
+            font-size: 16px;
+            margin: 5px 0;
+        }
+
+        .section .price {
+            color: #ff4500;
+            font-size: 18px;
+            font-weight: bold;
+            margin: 10px 0;
+            text-decoration: line-through;
+        }
+
+        .section .discount-price {
+            color: #00c95d;
+            font-size: 24px;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+
+        footer {
+            margin: 50px 0 20px 0;
+            font-size: 8px;
+            color: white;
+            background-color: black;
+            padding: 20px 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="progress-bar">
+            <span>Barra de progresso...</span>
+            <span>91.17%</span>
+            <div class="progress" id="progress"></div>
+        </div>
+        <div class="banner">
+            <img src="https://i.postimg.cc/9FyRW49h/banner-checkout.jpg" alt="Banner">
+        </div>
+        <div class="section">
+            <img src="https://i.postimg.cc/4Zd6cBGD/logo.jpg" alt="Logo">
+            <div class="details">
+                <h3>Adquirindo</h3>
+                <p>Taxa Anti-Fraude (VALOR SERÁ REEMBOLSADO)</p>
+                <p class="price">De R$ 49,90</p>
+                <p class="discount-price">Por R$ 19,90</p>
+            </div>
+        </div>
+        <div class="checkout">
+            <a href="https://linkpriv.com/39cadf2c-42b9-4811-bf59-fbf7ddb04ff9" class="btn-green btn-pulse">
+                Liberar Acesso
+            </a>
+            <h3>Seu pedido está quase completo...</h3>
+            <h3 style="color: red;">TOQUE NO BOTÃO acima!</h3>
+        </div>
+        <footer>
+            <p style="color: white;font-size: 12px;">TERMOS DE USO / POLÍTICAS DE PRIVACIDADE</p>
+            <p style="color: white;font-size: 8px;">Este site não é afiliado ao Facebook nem a qualquer entidade do Facebook. Uma vez que você sai do Facebook, não é mais responsabilidade deles, mas sim do nosso site. Fazemos o nosso melhor para indicar e mostrar claramente todas as provas do produto e utilizar resultados reais.</p>
+        </footer>
+    </div>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+</body>
+</html>
