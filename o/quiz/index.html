@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bem vindo(a) | OpinaPro</title>
+  <link rel="icon" href="https://i.postimg.cc/C1NNmbLY/iconeopina.webp" type="image/png">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Seção de Alerta -->
+  <div class="alert-section">
+    Bem vindo(a)!
+  </div>
+
+  <!-- Seção Principal -->
+  <div class="main-content">
+    <div class="logo">
+      <img src="https://i.postimg.cc/9QrDFsX8/image.webp" alt="Logo" width="100">
+    </div>
+    <div class="value">
+      Saldo: R$ 00,00
+    </div>
+    <!-- Seção Quiz -->
+<div class="containerquiz">
+</div>
+<h1>Vamos Começar!</h1> 
+<p>
+ Responda o quiz para descobrir se você está<span class="highlight-green"> apto a ser um Avaliador de Marcas Famosas no OpinaPro!</span>
+</p>
+<!-- Perguntas quiz -->
+<div class="entrecontainerquiz">
+  <!-- Barra de Progresso -->
+  <div class="progress-container">
+    <div class="progress-bar" id="progressBar"></div>
+  </div>
+
+  <div id="quiz" class="quiz-container">
+    <div class="question" id="question-1">
+      <p>Com que frequência você compra produtos ou serviços de marcas famosas?</p>
+      <div class="options">
+        <button onclick="nextQuestion(1)">🛒 Raramente</button>
+        <button onclick="nextQuestion(1)">🛍️ Algumas vezes por mês</button>
+        <button onclick="nextQuestion(1)">🛍️ Toda semana</button>
+        <button onclick="nextQuestion(1)">🛍️ Quase todos os dias</button>
+      </div>
+    </div>
+    <div class="question hidden" id="question-2">
+      <p>Quais categorias de produtos ou serviços você mais consome?</p>
+      <div class="options">
+        <button onclick="nextQuestion(2)">🍔 Alimentos e bebidas</button>
+        <button onclick="nextQuestion(2)">👗 Moda e acessórios</button>
+        <button onclick="nextQuestion(2)">📱 Eletrônicos e tecnologia</button>
+        <button onclick="nextQuestion(2)">🛏️ Casa e decoração</button>
+      </div>
+    </div>
+    <div class="question hidden" id="question-3">
+      <p>O que mais te atrai ao escolher uma marca famosa?</p>
+      <div class="options">
+        <button onclick="nextQuestion(3)">⭐ Qualidade garantida</button>
+        <button onclick="nextQuestion(3)">💰 Preço justo</button>
+        <button onclick="nextQuestion(3)">🏆 Reconhecimento e status</button>
+        <button onclick="nextQuestion(3)">✨ Inovação e tendências</button>
+      </div>
+    </div>
+    <div class="question hidden" id="question-4">
+      <p>Você gosta de opinar sobre produtos e serviços que consome?</p>
+      <div class="options">
+        <button onclick="nextQuestion(4)">👍 Sim, sempre!</button>
+        <button onclick="nextQuestion(4)">🤔 Sim, às vezes</button>
+        <button onclick="nextQuestion(4)">😐 Só quando pedem minha opinião</button>
+        <button onclick="nextQuestion(4)">👎 Não gosto de opinar</button>
+      </div>
+    </div>
+    <div class="question hidden" id="question-5">
+      <p>(Última Pergunta) Quanto tempo você pode dedicar por dia para dar sua opinião?</p>
+      <div class="options">
+        <button onclick="showLoadingScreen()">⏰ Menos de 10 minutos</button>
+        <button onclick="showLoadingScreen()">⏰ De 10 a 30 minutos</button>
+        <button onclick="showLoadingScreen()">⏰ De 30 minutos a 1 hora</button>
+        <button onclick="showLoadingScreen()">⏰ Mais de 1 hora</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="loadingScreen" class="loading-screen hidden">
+    <h2>Analisando suas respostas...</h2>
+    <p>Estamos verificando seu perfil, aguarde um momento.</p>
+  </div>
+
+  <div id="result" class="checklist hidden">
+    <h2>Estamos procurando pessoas que:</h2>
+    <ul>
+      <li>💡 Gostam de opinar sobre produtos e serviços do dia a dia;</li>
+      <li>🛍️ Consomem produtos de marcas famosas e reconhecidas;</li>
+      <li>⏰ Têm ao menos 10 minutos diários para responder pesquisas;</li>
+      <li>📱 Querem transformar suas opiniões em recompensas exclusivas.</li>
+    </ul>
+  </div>
+
+  <div id="cta" class="cta-card hidden">
+    <h2>Como começar?</h2>
+    <p><strong>Se você se encaixa nesses requisitos, o OpinaPro quer ouvir suas opiniões para ajudar as marcas a oferecerem melhores produtos e serviços.</strong></p>
+    <p>Como Avaliador Oficial, você pode ganhar <strong>recompensas exclusivas</strong> por cada pesquisa respondida. Pronto para começar?</p>
+    <a href="../inicio" class="cta-button pulsing-button">Sim, quero começar!</a>
+  </div>
+</div>
+
+
+    <!-- Perguntas quiz -->
+  </div>
+    <!-- Script quiz -->
+    <script>
+                        const totalQuestions = 5;
+                        function updateProgress(currentQuestion) {
+                        const progress = (currentQuestion / totalQuestions) * 100;
+                        document.getElementById("progressBar").style.width = progress + "%";
+                        }
+                        // Função para exibir a próxima pergunta e atualizar a barra de progresso
+                        function nextQuestion(current) {
+                        document.getElementById(`question-${current}`).classList.add("hidden");
+                        document.getElementById(`question-${current + 1}`).classList.remove("hidden");
+                        updateProgress(current + 1);
+                        }
+                        // Função para exibir a tela de carregamento antes do resultado final
+                        function showLoadingScreen() {
+                        document.getElementById("quiz").classList.add("hidden");
+                        document.getElementById("loadingScreen").classList.remove("hidden");
+                        updateProgress(totalQuestions);
+                        // Mostrar tela de resultados após 2 segundos
+                        setTimeout(showChecklist, 0);
+                        }
+                        // Função para exibir o resultado após a tela de carregamento
+                        function showChecklist() {
+                        document.getElementById("loadingScreen").classList.add("hidden");
+                        document.getElementById("result").classList.remove("hidden");
+                        document.getElementById("cta").classList.remove("hidden");
+                        }
+                     </script>
+    <!-- Script quiz -->
+
+    <!-- Seção FAQ -->
+    <div class="faq-section">
+      <h2 class="faq-title">Perguntas Frequentes</h2>
+      <div class="faq-container">
+        <!-- FAQ Item 1 -->
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Tem que pagar taxa?</span>
+            <i class="faq-icon">+</i>
+          </button>
+          <div class="faq-answer">
+            <p>Inicialmente não é necessário pagamento de nenhuma taxa, basta ser um usuário real. Caso tenha necessidade de validar sua identidade, repassamos apenas o custo da transferência e nada mais.</p>
+          </div>
+        </div>
+        
+        <!-- FAQ Item 2 -->
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>O que acontece se eu não for uma pessoa real?</span>
+            <i class="faq-icon">+</i>
+          </button>
+          <div class="faq-answer">
+            <p>Os assinantes tem até o final do dia para validar seus dados, após o contato do suporte, para realizar o pagamento. Caso contrário, perderá a vaga. Lembrando: <strong>as vagas são limitadas e nos resguardamos a não liberar novas vagas.</strong></p>
+          </div>
+        </div>
+        
+        <!-- FAQ Item 3 -->
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>O que acontece após eu responder as perguntas?</span>
+            <i class="faq-icon">+</i>
+          </button>
+          <div class="faq-answer">
+            <p>Assim que responder as perguntas, o acesso ao aplicativo será liberado. Você poderá continuar avaliando músicas e solicitar saques disponíveis.</p>
+          </div>
+        </div>
+        
+        <!-- FAQ Item 4 -->
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Quem pode participar?</span>
+            <i class="faq-icon">+</i>
+          </button>
+          <div class="faq-answer">
+            <p>Jovens com no mínimo 16 anos que possuam conta bancária. É fundamental validar o cadastro para evitar fraudes e garantir o pagamento.</p>
+          </div>
+        </div>
+        
+        <!-- FAQ Item 5 -->
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Por que preciso validar minha conta?</span>
+            <i class="faq-icon">+</i>
+          </button>
+          <div class="faq-answer">
+            <p>A validação é essencial para garantir que você é um usuário legítimo e para evitar fraudes financeiras. Isso inclui a verificação de dados bancários.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  <!-- Seção de Rodapé -->
+  <div class="footer">
+    <img src="https://i.postimg.cc/c1tgSpHF/image.png" alt="Imagem 1">
+    <img src="https://i.postimg.cc/HsGJs68d/image.png" alt="Imagem 2">
+  </div>
+ <!-- Script Utms -->
+             <script>
+             // Função para adicionar os parâmetros aos links
+             function adicionarParametrosAosLinks() {
+                 const urlParams = new URLSearchParams(window.location.search);
+
+                 const links = document.querySelectorAll('a');
+
+                 links.forEach(link =>  {
+                     const href = new URL(link.href);
+                     urlParams.forEach((value, key) => {
+                         href.searchParams.set(key, value);
+                     });
+                     link.href = href.toString();
+                 });
+             }
+
+             // Chamar a função ao carregar a página
+             document.addEventListener('DOMContentLoaded', adicionarParametrosAosLinks);
+             </script>
+   <!-- Script Utms -->
+
+      <!-- Script FAQ -->
+      <script>
+        document.querySelectorAll('.faq-question').forEach(button => {
+          button.addEventListener('click', () => {
+            const faqItem = button.parentElement;
+            faqItem.classList.toggle('active');
+
+            // Fecha outros itens abertos
+            document.querySelectorAll('.faq-item').forEach(item => {
+              if (item !== faqItem) {
+                item.classList.remove('active');
+              }
+            });
+          });
+        });
+
+      </script>
+      <!-- Script FAQ -->
+</body>
+</html>

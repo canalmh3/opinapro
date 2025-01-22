@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bem vindo(a) | OpinaPro</title>
+  <link rel="icon" href="https://i.postimg.cc/C1NNmbLY/iconeopina.webp" type="image/png">
+  <!-- TailwindCSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Poppins:wght@500;700&display=swap" rel="stylesheet">
+</head>
+<body class="font-roboto bg-gray-50 text-gray-800">
+
+  <!-- Seção de Alerta -->
+  <div class="bg-blue-500 text-white text-center py-2">
+    Bem vindo(a)!
+  </div>
+
+  <!-- Seção Principal -->
+  <div class="flex flex-col items-center my-6">
+    <!-- Logo -->
+    <img src="https://i.postimg.cc/9QrDFsX8/image.webp" alt="Logo" class="w-24">
+    <!-- Saldo -->
+    <p class="text-lg font-semibold mt-2">Saldo: <span class="text-green-500">R$ 00,00</span></p>
+  </div>
+
+  <!-- Seção Quiz -->
+  <div class="max-w-3xl mx-auto bg-white shadow-lg rounded-lg p-6">
+    <h1 class="font-poppins text-3xl font-bold mb-4 text-center">Vamos Começar!</h1>
+    <p class="text-lg text-center mb-6">
+      Responda o quiz para descobrir se você está <span class="text-green-500 font-semibold">apto a ser um Avaliador de Marcas Famosas no OpinaPro!</span>
+    </p>
+    <!-- Perguntas quiz -->
+    <div id="quiz" class="space-y-6">
+      <!-- Pergunta 1 -->
+      <div id="question-1" class="question">
+        <p class="text-lg font-medium mb-4">Com que frequência você compra produtos ou serviços de marcas famosas?</p>
+        <div class="grid gap-3">
+          <button onclick="nextQuestion(1)" class="bg-blue-500 text-white py-2 px-4 rounded shadow-md hover:bg-blue-600">🛒 Raramente</button>
+          <button onclick="nextQuestion(1)" class="bg-blue-500 text-white py-2 px-4 rounded shadow-md hover:bg-blue-600">🛍️ Algumas vezes por mês</button>
+          <button onclick="nextQuestion(1)" class="bg-blue-500 text-white py-2 px-4 rounded shadow-md hover:bg-blue-600">🛍️ Toda semana</button>
+          <button onclick="nextQuestion(1)" class="bg-blue-500 text-white py-2 px-4 rounded shadow-md hover:bg-blue-600">🛍️ Quase todos os dias</button>
+        </div>
+      </div>
+      <!-- Pergunta 2 -->
+      <div id="question-2" class="question hidden">
+        <p class="text-lg font-medium mb-4">Quais categorias de produtos ou serviços você mais consome?</p>
+        <div class="grid gap-3">
+          <button onclick="nextQuestion(2)" class="bg-blue-500 text-white py-2 px-4 rounded shadow-md hover:bg-blue-600">🍔 Alimentos e bebidas</button>
+          <button onclick="nextQuestion(2)" class="bg-blue-500 text-white py-2 px-4 rounded shadow-md hover:bg-blue-600">👗 Moda e acessórios</button>
+          <button onclick="nextQuestion(2)" class="bg-blue-500 text-white py-2 px-4 rounded shadow-md hover:bg-blue-600">📱 Eletrônicos e tecnologia</button>
+          <button onclick="nextQuestion(2)" class="bg-blue-500 text-white py-2 px-4 rounded shadow-md hover:bg-blue-600">🛏️ Casa e decoração</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Barra de Progresso -->
+    <div class="w-full bg-gray-200 rounded-full h-2 mt-6">
+      <div id="progressBar" class="bg-blue-500 h-2 rounded-full" style="width: 20%;"></div>
+    </div>
+  </div>
+
+  <!-- FAQ -->
+  <div class="faq-section max-w-3xl mx-auto mt-8">
+    <h2 class="text-2xl font-bold text-center mb-6">Perguntas Frequentes</h2>
+    <div class="space-y-4">
+      <!-- FAQ Item -->
+      <div class="faq-item border border-gray-300 rounded p-4">
+        <button class="flex justify-between items-center w-full text-left">
+          <span class="text-lg font-medium">Tem que pagar taxa?</span>
+          <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer hidden mt-2 text-gray-600">
+          <p>Inicialmente não é necessário pagamento de nenhuma taxa...</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Botão de Ação -->
+  <div class="text-center mt-8">
+    <a href="../inicio" class="bg-green-500 text-white py-3 px-6 rounded-lg text-lg font-bold shadow-md hover:bg-green-600 transition duration-300">
+      Sim, quero começar!
+    </a>
+  </div>
+
+  <!-- Script -->
+  <script>
+    const totalQuestions = 2; // Atualize com o total de perguntas
+    function updateProgress(currentQuestion) {
+      const progress = (currentQuestion / totalQuestions) * 100;
+      document.getElementById("progressBar").style.width = progress + "%";
+    }
+    function nextQuestion(current) {
+      document.getElementById(`question-${current}`).classList.add("hidden");
+      document.getElementById(`question-${current + 1}`).classList.remove("hidden");
+      updateProgress(current + 1);
+    }
+  </script>
+</body>
+</html>
